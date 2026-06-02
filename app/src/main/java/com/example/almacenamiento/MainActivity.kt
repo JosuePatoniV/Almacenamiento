@@ -8,6 +8,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.almacenamiento.databinding.ActivityMainBinding
+import java.io.File
 import java.io.Reader
 
 class MainActivity : AppCompatActivity() {
@@ -49,6 +50,12 @@ class MainActivity : AppCompatActivity() {
         arrayArchivos.forEach { nombre->
             Log.i("started",nombre)
         }
+
+        //ejercicio5
+        val cacheFile =
+            File.createTempFile("session_tmp", ".dat",
+                cacheDir)
+        cacheFile.writeText("ID_Sesion: 0x99283")
 
     }
 }
