@@ -40,12 +40,11 @@ class MainActivity : AppCompatActivity() {
 
 
         //ejercicio 3
-        openFileInput("datos_usuario.txt").buffered
-        Reader().use { reader ->
+        openFileInput("datos_usuario.txt").bufferedReader().use { reader ->
             val text = reader.readText()
-            binding.twrutaContentFile.text=text
+            binding.twrutaContentFile.text = text
         }
-
+        //ejercicio 4
         val arrayArchivos: Array<String> = fileList()
         arrayArchivos.forEach { nombre->
             Log.i("started",nombre)
