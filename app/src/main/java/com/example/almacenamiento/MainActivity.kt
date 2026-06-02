@@ -1,11 +1,13 @@
 package com.example.almacenamiento
 
-import android.content.Contextimport android.os.Bundle
+import android.content.Context
+import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.almacenamiento.databinding.ActivityMainBinding
+import java.io.Reader
 
 class MainActivity : AppCompatActivity() {
 
@@ -34,5 +36,14 @@ class MainActivity : AppCompatActivity() {
             Context.MODE_PRIVATE).use { output ->
             output.write(fileContents.toByteArray())
         }
+
+
+        //ejercicio 3
+        openFileInput("datos_usuario.txt").buffered
+        Reader().use { reader ->
+            val text = reader.readText()
+            binding.twrutaContentFile.text=text
+        }
+
     }
 }
