@@ -1,6 +1,6 @@
 package com.example.almacenamiento
 
-import android.os.Bundle
+import android.content.Contextimport android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -10,6 +10,7 @@ import com.example.almacenamiento.databinding.ActivityMainBinding
 class MainActivity : AppCompatActivity() {
 
     lateinit var  binding: ActivityMainBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -24,5 +25,14 @@ class MainActivity : AppCompatActivity() {
         val path: String = filesDir.absolutePath
 
         binding.twruta.text=path
+
+        //parte 2 del ejercicio
+        val filename = "datos_usuario.txt"
+        val fileContents = "Puntaje: 1500\nNivel: 5"
+
+        openFileOutput(filename,
+            Context.MODE_PRIVATE).use { output ->
+            output.write(fileContents.toByteArray())
+        }
     }
 }
